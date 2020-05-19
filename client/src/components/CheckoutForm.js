@@ -14,8 +14,8 @@ const initialValue = {
 // and replace the necessary stateful logic from CheckoutForm with the hook
 
 const CheckoutForm = (props) => {
-  // const [showSuccessMessage, setShowSuccessMessage] = useForm(false)
- const  [values, handleChanges, handleSubmit, showSuccessMessage] = useForm(initialValue);
+  // const [showSuccessMessage, setShowSuccessMessage] = useForm(false) //can't call useForm twice--!!
+ const  [values, handleChanges, handleSubmit, showSuccessMessage] = useForm(initialValue); //MUST list in order returned in useForm hook--!!
 console.log('form values', showSuccessMessage)
   // const handleChanges = (e) => {
   //   setValues({ ...values, [e.target.name]: e.target.value });
@@ -66,7 +66,7 @@ console.log('form values', showSuccessMessage)
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        <button>Checkout</button>
+        <button data-testid="submitButton">Checkout</button>
       </form>
 
       {showSuccessMessage && (
